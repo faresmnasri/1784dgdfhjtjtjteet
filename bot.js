@@ -56,7 +56,7 @@ client.on('message', message => {
   if(!message.content.toLowerCase().startsWith(prefix)) return;
   if(command == "Vote") {
     if(!args.join(" ")) return message.channel.send(`**you must write suggestion **`);
-    let channel = message.guild.channels.find(c => c.name == "📕suggestions");
+    let channel = message.guild.channels.find(c => c.name == "📕votes");
     let embed = new Discord.RichEmbed()
     .setColor('RANDOM')
     .setAuthor(message.author.username, message.author.displayAvatarURL)
@@ -67,7 +67,7 @@ client.on('message', message => {
       msg.react("✅").then(() => msg.react("❌"));
       msg.channel.send(`@everyone`);
       message.delete()
-      message.channel.send(`**DONE!!the suggestion was sent to ROOM Suggestions :white_check_mark:  **`);
+      message.channel.send(`**DONE!!the suggestion was sent to Channel 📕votes :white_check_mark:  **`);
     });
   }
 });
